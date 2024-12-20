@@ -101,3 +101,13 @@ class Session(models.Model):
         self.is_active = False  # Marcar como inactivo
         self.save()
 
+
+
+class SessionReport(models.Model):
+    rideID = models.AutoField(primary_key=True)
+    userID = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    xml_data = models.TextField()  # Almacenamos el XML como texto
+
+    def __str__(self):
+        return f"Session report for {self.userID.UserName} (Ride {self.rideID})"
+

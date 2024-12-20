@@ -6,6 +6,7 @@ import PageDashboad from "./pages/PagesDashboard/PageDashboad.tsx";
 import PageAuth from "./pages/PageAuth/PageAuth.tsx";
 import PageMantenimientoUsuario from "./pages/PageMantenimientoUsuario/PageMantenimientoUsuario.tsx";
 import PageIngresoMasivo from "./pages/PageIngresoMasivo/PageIngresoMasivo.tsx";
+import PageSesionReport from "./pages/PageSessionReport/PageSesionReport.tsx";
 
 function App() {
     return (
@@ -16,7 +17,8 @@ function App() {
                 <Route path="/recuperar_contrasena" element={<PageAuth/>}/>
                 <Route path="/dashboard" element={<Home contenido={<PageDashboad/>}/>}/>
                 <Route path="/mantenimiento_usuario" element={<Home contenido={<PageMantenimientoUsuario/>}/>}/>
-                              <Route path="/ingreso_masivo" element={<Home contenido={<PageIngresoMasivo/>}/>}/>
+                <Route path="/ingreso_masivo" element={<Home contenido={<PageIngresoMasivo/>}/>}/>
+                <Route path="/reporte_xml" element={<Home contenido={<PageSesionReport/>}/>}/>
             </Routes>
             {/*definimos pora usar los Toast*/}
             <Toaster/>

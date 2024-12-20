@@ -4,7 +4,8 @@ from rest_framework import routers
 
 from main.views import (PersonaViewSet, UsuarioViewSet, RolViewSet, RolOpcionesViewSet, RolUsuarioViewSet,
                         RolRolOpcionesViewSet, SessionViewSet, InfoDatosBienvenidaView, InfoDashboardView,
-                        MenuUsuarioView, LoginView, LogoutView, RecuperarContresenaView, CrearUsuariosView)
+                        MenuUsuarioView, LoginView, LogoutView, RecuperarContresenaView, CrearUsuariosView,
+                        SessionReportViewSet)
 
 router = routers.DefaultRouter()
 router.register(r'personas', PersonaViewSet)
@@ -14,6 +15,7 @@ router.register(r'roles_opciones', RolOpcionesViewSet)
 router.register(r'roles_usuarios', RolUsuarioViewSet)
 router.register(r'rol_roles_usuarios', RolRolOpcionesViewSet)
 router.register(r'sessions', SessionViewSet)
+router.register(r'session-reports', SessionReportViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

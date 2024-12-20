@@ -3,9 +3,10 @@ from django.db import connection
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 
-from main.models import Persona, Usuario, Rol, RolOpciones, RolUsuario, RolRolOpciones, Session
+from main.models import Persona, Usuario, Rol, RolOpciones, RolUsuario, RolRolOpciones, Session, SessionReport
 from main.serializer import PersonaSerializer, UsuarioSerializer, RolSerializer, RolOpcionesSerializer, \
-    RolUsuarioSerializer, RolRolOpcionesSerializer, SessionSerializer, LoginSerializer, RecuperarContrasenaSerializer
+    RolUsuarioSerializer, RolRolOpcionesSerializer, SessionSerializer, LoginSerializer, RecuperarContrasenaSerializer, \
+    SessionReportSerializer
 from main.utils.validaciones import validar_nombre_usuario, validar_contrasena, validar_identificacion, generar_correo
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -407,6 +408,11 @@ class CrearUsuariosView(APIView):
             return Response({'errors': errors}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response({'created_users': created_users}, status=status.HTTP_201_CREATED)
+
+
+class SessionReportViewSet(viewsets.ModelViewSet):
+    queryset = SessionReport.objects.all()
+    serializer_class = SessionReportSerializer
 
 # para probar la api de crear el usuario
 # {

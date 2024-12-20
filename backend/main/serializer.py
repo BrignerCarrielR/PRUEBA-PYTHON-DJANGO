@@ -2,6 +2,7 @@ from rest_framework import serializers
 from main.models import *
 from django.contrib.auth.hashers import make_password, check_password
 
+
 class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Persona
@@ -28,8 +29,8 @@ class LoginSerializer(serializers.Serializer):
         if usuario.Status == 'bloqueado':
             raise serializers.ValidationError("El usuario está bloqueado.")
 
-
         return data
+
 
 class RolSerializer(serializers.ModelSerializer):
     class Meta:
@@ -78,3 +79,9 @@ class RecuperarContrasenaSerializer(serializers.Serializer):
             raise serializers.ValidationError("Usuario no encontrado o los datos no coinciden.")
 
         return data
+
+
+class SessionReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SessionReport
+        fields = ['rideID', 'userID', 'xml_data']
